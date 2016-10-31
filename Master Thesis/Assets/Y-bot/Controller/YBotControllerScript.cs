@@ -4,18 +4,39 @@ using System.Collections;
 public class YBotControllerScript : MonoBehaviour {
 
 	private Animator anim;
+	private NavMeshAgent navMeshAgent;
 	private float vert;
-	// Use this for initialization
-	void Start () {
-		anim = GetComponent<Animator> ();
+	private bool walking;
 
-	
+	// Use this for initialization
+	void Awake () 
+	{
+		anim = GetComponent<Animator> ();
+		navMeshAgent = GetComponent<NavMeshAgent> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		vert = Input.GetAxis ("Vertical");
-		anim.SetFloat ("walk", vert);
-	
+		
+		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+		RaycastHit hit;
+		if (Input.GetButtonDown ("Fire1")) 
+		{
+			if (Physics.Raycast (ray, out hit, 100)) 
+			{
+				walking = true;
+				navMeshAgent.destination = hit.point;
+				//navMeshAgent.Resume ();
+
+			}
+		}
+
+		if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance) {
+			//if (!navMeshAgent.hasPath || Mathf.Abs (navMeshAgent.velocity.sqrMagnitude) < float.Epsilon)
+			walking = false;
+		} else {
+			walking = true;
+		}
+		anim.SetBool("IsWalking", walking);
 	}
 }
