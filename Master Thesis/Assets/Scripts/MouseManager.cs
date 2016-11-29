@@ -11,16 +11,17 @@ public class MouseManager : MonoBehaviour {
 		
 	// Update is called once per frame
 	void Update () {
+		//A ray which indicates mouse position
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+		//Create an object of this kind to use raycast information
 		RaycastHit hitInfo;
 
 		if (Physics.Raycast (ray, out hitInfo)) {
+				//Debug.Log ("Mouse is over:" + hitInfo.collider.name);
+				GameObject hitObject = hitInfo.transform.root.gameObject;
 
-			Debug.Log ("Mouse is over:" + hitInfo.collider.name);
-			GameObject hitObject = hitInfo.transform.root.gameObject;
-
-			SelectObject (hitObject);
+				SelectObject (hitObject);
 		} else {
 			ClearSelection ();
 		}
@@ -36,10 +37,26 @@ public class MouseManager : MonoBehaviour {
 			ClearSelection ();
 		}
 		selectedObject = obj;
+
+		Renderer[] rs = selectedObject.GetComponentsInChildren<Renderer> ();
+		foreach (Renderer r in rs) {
+			Material m = r.material;
+			m.color = Color.green;
+			r.material = m;
+		}
 	
 	}
 
 	void ClearSelection(){
+		if (selectedObject == null)
+			return;
+		
+		Renderer[] rs = selectedObject.GetComponentsInChildren<Renderer> ();
+		foreach (Renderer r in rs) {
+			Material m = r.material;
+			m.color = Color.white;
+			r.material = m;
+		}
 		selectedObject = null;
 	}
 
