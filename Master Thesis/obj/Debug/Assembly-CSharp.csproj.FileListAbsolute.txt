@@ -13,7 +13,6 @@ C:\Users\Βικεντια\Documents\GitHub\Master-Thesis\Master-Thesis\Master Th
 C:\Users\Βικεντια\Documents\GitHub\Master-Thesis\Master-Thesis\Master Thesis\Temp\bin\Debug\Unity.CecilTools.dll
 C:\Users\Βικεντια\Documents\GitHub\Master-Thesis\Master-Thesis\Master Thesis\Temp\bin\Debug\Mono.Cecil.Pdb.dll
 C:\Users\Βικεντια\Documents\GitHub\Master-Thesis\Master-Thesis\Master Thesis\Temp\bin\Debug\Mono.Cecil.Mdb.dll
-C:\Users\Βικεντια\Documents\GitHub\Master-Thesis\Master-Thesis\Master Thesis\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
 C:\Users\Βικεντια\Documents\GitHub\Master-Thesis\Master-Thesis\Master Thesis\Temp\bin\Debug\UnityEngine.xml
 C:\Users\Βικεντια\Documents\GitHub\Master-Thesis\Master-Thesis\Master Thesis\Temp\bin\Debug\UnityEditor.xml
 C:\Users\Βικεντια\Documents\GitHub\Master-Thesis\Master-Thesis\Master Thesis\Temp\bin\Debug\UnityEngine.UI.xml
